@@ -32,16 +32,12 @@ print(k_words)
 import re
 from collections import Counter
 
-
 with open("polednice.txt", "r", encoding="utf-8") as soubor:
     text = soubor.read().lower()
 
-
 slova = re.findall(r"[a-zá-ž]+", text)
 
-
 cetnost = Counter(slova)
-
 
 slovnik_jednou = {slovo: pocet for slovo, pocet in cetnost.items() if pocet == 1}
 
@@ -51,3 +47,16 @@ print(slovnik_jednou)
 
 print("Počet těchto slov:", len(slovnik_jednou))
 
+import re
+
+with open("polednice.txt", "r", encoding="utf-8") as soubor:
+    text = soubor.read().lower()
+
+slova = re.findall(r"[a-zá-ž]+", text)
+
+slovnik_8 = {slovo: len(slovo) for slovo in slova if len(slovo) == 8}
+
+print("Osmipísmenná slova:")
+print(slovnik_8)
+
+print("Počet osmipísmenných slov:", len(slovnik_8))
